@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D1321"/>
+      <stop offset="100%" stop-color="#0B0F19"/>
+    </linearGradient>
+
+    <!-- Accent ring gradient -->
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+
+    <!-- Glow filter for the ring -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Subtle glow for tick marks -->
+    <filter id="tickGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Hand glow -->
+    <filter id="handGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Clip to circle -->
+    <clipPath id="circleClip">
+      <circle cx="512" cy="512" r="460"/>
+    </clipPath>
+  </defs>
+
+  <!-- Rounded square background -->
+  <rect width="1024" height="1024" rx="220" ry="220" fill="url(#bgGrad)"/>
+
+  <!-- Subtle radial background glow -->
+  <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.06"/>
+    <stop offset="100%" stop-color="#0B0F19" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="1024" height="1024" rx="220" ry="220" fill="url(#centerGlow)"/>
+
+  <!-- Outer decorative ring (faint) -->
+  <circle cx="512" cy="512" r="430" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="2"/>
+
+  <!-- Main clock ring with gradient glow -->
+  <circle cx="512" cy="512" r="380" fill="none" stroke="url(#ringGrad)" stroke-width="14" stroke-linecap="round" filter="url(#glow)"/>
+
+  <!-- Inner ring (subtle) -->
+  <circle cx="512" cy="512" r="355" fill="none" stroke="rgba(6,182,212,0.08)" stroke-width="1.5"/>
+
+  <!-- Clock face (very subtle fill) -->
+  <circle cx="512" cy="512" r="354" fill="rgba(6,182,212,0.025)"/>
+
+  <!-- Hour tick marks (12 positions) -->
+  <!-- 12 o'clock -->
+  <line x1="512" y1="150" x2="512" y2="196" stroke="#06B6D4" stroke-width="10" stroke-linecap="round" filter="url(#tickGlow)"/>
+  <!-- 1 o'clock -->
+  <line x1="702" y1="195" x2="677" y2="238" stroke="#10B981" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+  <!-- 2 o'clock -->
+  <line x1="829" y1="322" x2="804" y2="365" stroke="#10B981" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+  <!-- 3 o'clock -->
+  <line x1="874" y1="512" x2="828" y2="512" stroke="#06B6D4" stroke-width="10" stroke-linecap="round" filter="url(#tickGlow)"/>
+  <!-- 4 o'clock -->
+  <line x1="829" y1="702" x2="804" y2="659" stroke="#10B981" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+  <!-- 5 o'clock -->
+  <line x1="702" y1="829" x2="677" y2="786" stroke="#10B981" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+  <!-- 6 o'clock -->
+  <line x1="512" y1="874" x2="512" y2="828" stroke="#06B6D4" stroke-width="10" stroke-linecap="round" filter="url(#tickGlow)"/>
+  <!-- 7 o'clock -->
+  <line x1="322" y1="829" x2="347" y2="786" stroke="#10B981" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+  <!-- 8 o'clock -->
+  <line x1="195" y1="702" x2="220" y2="659" stroke="#10B981" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+  <!-- 9 o'clock -->
+  <line x1="150" y1="512" x2="196" y2="512" stroke="#06B6D4" stroke-width="10" stroke-linecap="round" filter="url(#tickGlow)"/>
+  <!-- 10 o'clock -->
+  <line x1="195" y1="322" x2="220" y2="365" stroke="#10B981" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+  <!-- 11 o'clock -->
+  <line x1="322" y1="195" x2="347" y2="238" stroke="#10B981" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Minute hand (pointing to 12, slightly offset for style) -->
+  <line x1="512" y1="512" x2="512" y2="230"
+        stroke="url(#ringGrad)" stroke-width="16" stroke-linecap="round" filter="url(#handGlow)"/>
+
+  <!-- Hour hand (pointing to ~10 o'clock) -->
+  <line x1="512" y1="512" x2="330" y2="355"
+        stroke="#10B981" stroke-width="22" stroke-linecap="round" filter="url(#handGlow)"/>
+
+  <!-- Second hand accent (thin, bright) -->
+  <line x1="512" y1="540" x2="512" y2="210"
+        stroke="#06B6D4" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Center dot (layered for depth) -->
+  <circle cx="512" cy="512" r="28" fill="#0B0F19"/>
+  <circle cx="512" cy="512" r="22" fill="url(#ringGrad)" filter="url(#handGlow)"/>
+  <circle cx="512" cy="512" r="10" fill="#FFFFFF" opacity="0.9"/>
+
+  <!-- KRONOS text -->
+  <text x="512" y="670"
+        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-weight="800"
+        font-size="68"
+        letter-spacing="14"
+        text-anchor="middle"
+        fill="none"
+        stroke="url(#ringGrad)"
+        stroke-width="1.5"
+        opacity="0.85">KRONOS</text>
+</svg>

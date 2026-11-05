@@ -1,0 +1,14 @@
+{
+  "appId": "com.kronos.scheduler",
+  "appName": "Kronos",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": true,
+    "backgroundColor": "#0B0F19"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}

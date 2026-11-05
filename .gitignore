@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Build output
+*.apk
+*.aab
+
+# Signing keys
+*.jks
+*.keystore
+
+# Local environment
+.env
+.env.*
+
+# macOS
+.DS_Store
